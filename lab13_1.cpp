@@ -13,6 +13,40 @@ template <typename T>
 void insertionSort(T d[],int N){
 	
 //Write your code here.
+T a[N];
+int num;
+for(int k=0;k<N;k++){
+	a[k] = d[k];
+}
+for(int i=1;i<N;i++){
+	for(int k=0;k<N;k++){
+		if(k==i){
+			cout << "[" << d[k] << "]";
+		}else{
+			cout << " " << d[k] << " ";
+		}
+	}
+	cout << " => ";
+	for(int j=i;j!=0;j--){
+		if(a[j]<=a[j-1]){
+			num = j;
+			break;
+		}
+		if(a[j]>a[j-1]){
+			swap(a,j,j-1);
+			num = j-1;
+		}
+	}
+	for(int k=0;k<N;k++){
+		d[k] = a[k];
+		if(num==k){
+			cout << "[" << a[k] << "]";
+		}else{
+			cout << " " << a[k] << " ";
+		}
+	}
+	cout << "\n";
+}
 
 }
 
